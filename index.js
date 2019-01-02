@@ -27,7 +27,7 @@ const onMessage = function(msg) {
     list = list.filter(item => (source == null || source == 'unset' || item.source == source) && (destination == null || destination == 'unset' || item.destination == destination))
     if(list.length == 0) return false
     const result = list[0]
-    if(result && result.score/10 > candidate.length/3.5) {
+    if(result && result.score > candidate.length/3.5) {
       API.sendMessage(msg.chat.id, '-> ' + result.str + ' (' + result.source + ' - ' + result.destination + ')', {reply_to_message_id: msg.message_id})
       return true
     }
