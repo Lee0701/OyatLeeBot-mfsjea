@@ -19,7 +19,7 @@ const onMessage = function(msg) {
   if(use == 'false') return false
 
   const candidate = msg.text.replace(/[가-힣ㄱ-ㅎㅏ-ㅣᄀ-하-ᅵᆨ-ᇂ]/g, '')
-  if(mfsjea.count2350(msg.text) < msg.text.length/3) {
+  if(mfsjea.count2350(msg.text) < 1) {
     let list = mfsjea.jeamfsList(msg.text)
     list.sort((a, b) => b.score - a.score)
     const source = API.getUserConfig(msg.from.id, CONFIG_KEY_SOURCE)
